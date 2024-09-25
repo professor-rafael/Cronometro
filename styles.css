@@ -1,0 +1,520 @@
+:root {
+    --color-primary: #123456;
+    --color-secondary: #FFF;
+    --azul-royal: #144480;
+    --fundo-card-timer: rgba(20, 68, 128, 0.30);
+    --lils: #B872FF;
+    --linear-botes: linear-gradient(180deg, #B872FF 0%, #144480 100%);
+    --azul-profundo: #01080E;
+    --fundo-card: rgba(255, 255, 255, 0.50);
+    --fundo-card-concludo: rgba(0, 244, 191, 0.40);
+}
+
+[data-contexto="foco"] {
+    --main-bg-color: linear-gradient(180deg, #8B1FF8 0%, #041832 48.44%, #01080E 100%);
+}
+
+[data-contexto="descanso-curto"] {
+    --main-bg-color: linear-gradient(180deg, #0F725C 0%, #041832 48.44%, #01080E 100%);
+}
+
+[data-contexto="descanso-longo"] {
+    --main-bg-color: linear-gradient(180deg, #1875E9 0%, #041832 48.44%, #01080E 100%);
+}
+
+* {
+    box-sizing: border-box;
+    max-width: 100%;
+}
+
+html {
+    background: var(--main-bg-color);
+    min-height: 100vh;
+    font-size: 10px;
+}
+
+body {
+    min-height: 100vh;
+    background: url("ras3.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Unbounded', cursive;
+}
+
+.app__logo-figure {
+    display: flex;
+    justify-content: center;
+    padding: 4rem 0;
+}
+
+.app__section-banner-container {
+    width: 99rem;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4rem;
+    flex-wrap: wrap;
+}
+
+.app__title {
+    line-height: 150%;
+    font-size: 5.2rem;
+    font-style: normal;
+    color: var(--color-secondary);
+    font-weight: 200;
+    max-width: 46rem;
+}
+
+.app__title-strong {
+    font-weight: 600;
+}
+
+.app__section-card-container {
+    display: flex;
+    justify-content: center;
+}
+
+.app__card {
+    border-radius: 3.2rem;
+    border: 0.2rem solid var(--azul-royal);
+    background: var(--fundo-card-timer);
+    padding: 2.4rem;
+    margin: 8rem 0;
+    width: 59rem;
+    max-width: 90%;
+}
+
+.app__card-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.6rem;
+}
+
+.app__card-button {
+    font-family: Montserrat;
+    font-size: 1.8rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    background: none;
+    padding: 0.8rem;
+    color: var(--color-secondary);
+    border: none;
+    cursor: pointer;
+    outline: inherit;
+}
+
+.app__card-button.active {
+    border-radius: 0.8rem;
+    background: var(--azul-royal);
+    font-weight: 600;
+}
+
+.app__card-timer {
+    color: var(--color-secondary);
+    text-align: center;
+    font-family: Unbounded;
+    font-size: 12rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin: 3.2rem;
+    text-align: center;
+}
+
+.app__card-list-label {
+    color: var(--color-secondary);
+    font-family: Montserrat;
+    font-size: 1.8rem;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.app__card-primary-button-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.app__card-primary-button {
+    padding: 0.8rem;
+    width: 12rem;
+    color: var(--color-secondary);
+    border: none;
+    cursor: pointer;
+    outline: inherit;
+    border-radius: 3.2rem;
+    background: var(--linear-botes);
+    margin-top: 3.2rem;
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.app__footer {
+    display: flex;
+    width: 100%;
+    padding: 2.8rem 6rem;
+    justify-content: center;
+    align-items: center;
+    background: #010B15;
+}
+
+.app__footer-text {
+    color: rgba(182, 182, 182, 0.8);
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+}
+
+/* toggle */
+.toggle {
+    cursor: pointer;
+    display: inline-block;
+}
+
+.toggle-switch {
+    display: inline-block;
+    background: #ccc;
+    border-radius: 1.6rem;
+    width: 5.8rem;
+    height: 3.2rem;
+    position: relative;
+    vertical-align: middle;
+    transition: background 0.25s;
+}
+
+.toggle-switch:before, .toggle-switch:after {
+    content: "";
+}
+
+.toggle-switch:before {
+    display: block;
+    background: linear-gradient(to bottom, yellowgreen 0%, yellowgreen 100%);
+    border-radius: 50%;
+    width: 2.4rem;
+    height: 2.4rem;
+    position: absolute;
+    top: 0.4rem;
+    left: 0.4rem;
+    transition: left 0.25s;
+}
+
+.toggle:hover .toggle-switch:before {
+    background: linear-gradient(to bottom, yellowgreen 0%, yellowgreen 100%);
+}
+
+.toggle-checkbox:checked + .toggle-switch {
+    background: var(--lils);
+}
+
+.toggle-checkbox:checked + .toggle-switch:before {
+    left: 3rem;
+}
+
+.toggle-checkbox {
+    position: absolute;
+    visibility: hidden;
+}
+
+/* fim - toggle */
+
+/* dropdown */
+.dropdown-container {
+    position: relative;
+}
+
+.app__section-task-header__ul {
+    display: none;
+    position: absolute;
+    z-index: 10;
+    top: 100%;
+    right: 0;
+    min-width: 24rem;
+    padding: 1.6rem;
+}
+
+.app__section-task-header__ul:hover,
+.app_button-more:hover ~ .app__section-task-header__ul {
+    display: block;
+    text-align: right;
+    border-radius: 0.8rem;
+    border: 0.2rem solid var(--azul-royal, #144480);
+    background: var(--fundo-modal-2, #1B293B);
+}
+
+.app__section-task-header__li {
+    margin: 1.6rem 0;
+}
+
+.app__section-task-header__li__button {
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    outline: inherit;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: yellowgreen;
+    gap: 0.8rem;
+}
+
+/* fim - dropdown */
+
+
+/* Para Tablets */
+@media (max-width: 1024px) and (min-width: 768px) {
+    .app__section-banner-container {
+        width: 48rem;
+    }
+}
+
+/* Para Celulares */
+@media (max-width: 767px) {
+    .app__section-banner-container {
+        width: 32rem;
+    }
+
+    .app__title {
+        font-size: 2.6rem;
+    }
+
+    .app__card-timer {
+        font-size: 6rem;
+    }
+
+    .app__section-active-task {
+        gap: 2rem;
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+
+.app__section-task-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.app__section-task-content {
+    width: 59rem;
+    max-width: 90%;
+    color: yellowgreen;
+}
+
+.app__section-active-task {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6rem;
+    padding: 4rem 0;
+    border-bottom: 1px solid purple;
+    margin-bottom: 4rem;
+}
+
+.app__form-textarea,
+.app__form-textarea::placeholder {
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    white-space: nowrap;
+    font-family: Montserrat;
+}
+
+.app__section-active-task-description {
+    font-family: Montserrat;
+    font-size: 1.8rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%;
+}
+
+.app__section-tasks-heading {
+    font-size: 2.6rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+}
+
+.app__section-task-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.app_button-edit,
+.app_button-more {
+    border: none;
+    cursor: pointer;
+    outline: inherit;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+}
+
+.app__section-active-task-label {
+    font-family: Montserrat;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+}
+
+.app__section-task-list {
+    margin-top: 2.4rem;
+    margin-bottom: 4rem;
+}
+
+.app__section-task-list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    border-radius: 0.8rem;
+    background: var(--fundo-card);
+    margin-bottom: 0.8rem;
+    padding: 1.6rem;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.app__section-task-list-item-description {
+    flex-grow: 1;
+    margin: 0;
+    font-size: 1.8rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%;
+    color: var(--azul-profundo);
+    font-family: Montserrat;
+}
+
+.app__section-task-list-item-complete.app__section-task-list-item {
+    background: var(--fundo-card-concludo);
+    cursor: inherit;
+}
+
+.app__section-task-list-item-active.app__section-task-list-item {
+    border: 2px solid yellowgreen;
+}
+
+.app__section-task-list-item-complete .app__section-task-icon-status circle {
+    fill: yellow;
+}
+
+.app__form-add-task {
+    padding: 1.6rem;
+    border-radius: 0.8rem;
+    background: var(--fundo-card);
+    font-size: 1.8rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%; 
+    font-family: Montserrat;
+}
+
+.app__form-label {
+    color: var(--azul-profundo);
+    font-family: Unbounded;
+    font-size: 2.6rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    display: block;
+    margin-bottom: 3.2rem;
+}
+
+.app__form-textarea {
+    width: 100%;
+    border-radius: 0.8rem;
+    padding: 0.8rem;
+    background: yellowgreen;
+}
+
+.app__form-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.6rem;
+    margin-top: 3.2rem;
+   
+}
+
+.app__form-footer .splitter {
+    flex-grow: 1;
+}
+
+.app__form-footer__button {
+    border: none;
+    cursor: pointer;
+    outline: inherit;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    color: var(--azul-profundo);
+    font-family: Montserrat;
+    font-size: 1.8rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%;
+    gap: 0.8rem;
+}
+
+.app__form-footer__button--confirm {
+    border-radius: 3.2rem;
+    padding: 0.8rem 2.4rem;
+    color: yellowgreen;
+    background: var(--azul-profundo);
+}
+
+.app__button--add-task {
+    border: none;
+    cursor: pointer;
+    outline: inherit;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    color: var(--lils);
+    border-radius: 3.2rem;
+    border: 0.2rem solid var(--lils);
+    width: 100%;
+    margin-top: 4rem;
+    padding: 1.8rem;
+    font-size: 1.8rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%;
+}
+
+.app_button-edit:disabled {
+    color: yellowgreen;
+    opacity: 0.8;
+    cursor: not-allowed;
+}
+
+footer{
+    color: yellowgreen;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 22px;
+}
